@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Random Star Wars Character Generator</title>
+</head>
+
+<body>
+	<h1 id='Title'>Random Star Wars characters</h1>
+	<section id="overview">
+		<p><a id="a1" href=<%- myjson[0] %></a><%- myjson[0] %></a></p>
+		<p><a id="a2" href="#details"><%- myjson[1] %></a></p>
+		<p><a id="a3" href="#details"><%- myjson[2] %></a></p>
+		<p><a id="a4" href="#details"><%- myjson[3] %></a></p>
+		<p><a id="a5" href="#details"><%- myjson[4] %></a></p>
+		<p><a id="a6" href="#details"><%- myjson[5] %></a></p>
+
+		<button id="RandomButton" type="button">Randomize</button>
+	</section>
+
+	<section id="details" class="hidden">
+		<p id="name">Name: Loading</p>
+		<p id="gender">Gender: Loading</p>
+		<p id="birthday">Birthday: Loading</p>
+		<p id="mass">Mass(lbs): Loading</p>
+		<button type="button"><a href="#overview">back</a></button>
+	</section>
+
+	<main></main>
+
+</body>
+</html>

@@ -4,7 +4,7 @@ const request = require('request');
 
 // Config object
 const config = {
-	port: 3000
+	port: 5000
 }
 
 // Create new express app in 'app'

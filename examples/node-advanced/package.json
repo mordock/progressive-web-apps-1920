@@ -4,8 +4,8 @@
   "description": "Advanced Node API example",
   "main": "index.js",
   "scripts": {
-	"start": "node index.js",
-	"dev": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stef van Dijk",
@@ -13,6 +13,6 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   }
 }
