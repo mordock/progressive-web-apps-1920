@@ -36,10 +36,11 @@ app.get('/randomize', (req, res) => {
     .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
 });
 
-app.get('/details', (req, res) => {
-    res.render('detail');
-
-    console.log('AAHHHH');
+app.get('/:id', (req, res) => {
+    console.log('BOEEE');
+    fetch(urlBase + urlExtensionCategory + urlSearchExtension + req.params.id)
+    .then(res => res.json())
+    .then(myjson => res.render('detail', {myjson:myjson}));
 });
 
 function randomAPIPageNumber(maxNumberPages){
