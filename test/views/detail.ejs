@@ -7,26 +7,14 @@
 
 <body>
 	<h1 id='Title'>Random Star Wars characters</h1>
-	<section id="overview">
-		<p><a id="a1" href="#details">BOE</a></p>
-		<p><a id="a2" href="#details">BOE</a></p>
-		<p><a id="a3" href="#details">BOE</a></p>
-		<p><a id="a4" href="#details">BOE</a></p>
-		<p><a id="a5" href="#details">BOE</a></p>
-		<p><a id="a6" href="#details">BOE</a></p>
-
-
-		<form action="/randomize" method="GET">
-			<input id="RandomButton" type="submit" value="Randomize">
-		</form>
-	</section>
-
-	<section id="details" class="hidden">
+	<section id="details">
 		<p id="name">Name: Loading</p>
 		<p id="gender">Gender: Loading</p>
 		<p id="birthday">Birthday: Loading</p>
 		<p id="mass">Mass(lbs): Loading</p>
-		<button type="button"><a href="#overview">back</a></button>
+		<form action="/randomize" method="GET">
+			<input id="RandomButton" type="submit" value="Randomize">
+		</form>
 	</section>
 
 	<main></main>

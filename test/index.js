@@ -31,11 +31,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/randomize', (req, res) => {
-    console.log('boe');
-
     fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
     .then(res => res.json())
     .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
+});
+
+app.get('/details', (req, res) => {
+    res.render('detail');
+
+    console.log('AAHHHH');
 });
 
 function randomAPIPageNumber(maxNumberPages){
