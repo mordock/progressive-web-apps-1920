@@ -30,6 +30,14 @@ app.get('/', (req, res) => {
     .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
 });
 
+app.get('/randomize', (req, res) => {
+    console.log('boe');
+
+    fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
+    .then(res => res.json())
+    .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
+});
+
 function randomAPIPageNumber(maxNumberPages){
     const randomPageNumber = Math.floor((Math.random() * maxNumberPages) + 1);
     return randomPageNumber;
