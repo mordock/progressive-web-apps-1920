@@ -15,7 +15,10 @@
 		<p><a id="a5" href="#details"><%- myjson[4] %></a></p>
 		<p><a id="a6" href="#details"><%- myjson[5] %></a></p>
 
-		<button id="RandomButton" type="button">Randomize</button>
+
+		<form action="/randomize" method="POST">
+			<input id="RandomButton" type="submit" value="Randomize">
+		</form>
 	</section>
 
 	<section id="details" class="hidden">

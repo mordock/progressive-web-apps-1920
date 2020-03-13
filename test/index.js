@@ -45,36 +45,21 @@ function getRandomNames(json){
 
         console.log(currentRandom);
 
-        myjson.push(json.results[currentRandom].name);
+        myjson.push(json.results[currentRandom].name);      
     }
+
+    numbersUsedList = [];
 
     return myjson;
 }
 
 function getRandomNumber(maxNumber){
-    //generate random number
-    // randomNumber = Math.floor((Math.random() * maxNumber));
-    // console.log(randomNumber);
-
-    // //if number is already used, go again
-    // if(numbersUsedList.includes(randomNumber)){
-    //     //reset random number to be sure
-    //     randomNumber = null;
-
-    //     getRandomNumber(maxNumber);
-    // }
-    // //add number to list to check
-    // numbersUsedList.push(randomNumber);
-
-    // if(randomNumber != null){
-    //     return randomNumber;
-    // }
-
     while(numbersUsedList.length < maxNumber){
         randomNumber = Math.floor(Math.random() * maxNumber);
         if(numbersUsedList.indexOf(randomNumber) === -1) {
             numbersUsedList.push(randomNumber);
             //console.log(randomNumber);
+             console.log(numbersUsedList);
             return randomNumber;
         }
     }
