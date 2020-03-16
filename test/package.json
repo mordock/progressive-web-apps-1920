@@ -1,9 +1,8 @@
 {
-  "name": "test",
+  "name": "webapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "start_url": "/randomize",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index"
