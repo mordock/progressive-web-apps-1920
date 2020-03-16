@@ -24,13 +24,7 @@ app.set('views', 'views');
 //use public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
-    .then(res => res.json())
-    .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
-});
-
-app.get('/randomize', (req, res) => {
+app.get('/:var(randomize)?', (req, res) => {
     fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
     .then(res => res.json())
     .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));

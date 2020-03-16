@@ -26,12 +26,12 @@ body{
     text-decoration: none;
     color: black;
   }
-  
-  button{
+
+  input{
     padding: 1px;
     font-family: Verdana;
     font-weight: bold;
-    background-color: yellow;
+    background-color: yellow
   }
   
   /* @font-face{
