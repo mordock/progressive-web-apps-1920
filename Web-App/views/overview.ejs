@@ -21,6 +21,25 @@
 		</form>
 	</section>
 	<main></main>
-
+	<script>
+		if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("js/serviceWorker.js").then(
+        registration => {
+          // Registration was successful
+          console.log(
+            "ServiceWorker registration successful with scope: ",
+            registration.scope
+          );
+          return registration.update();
+        },
+        err => {
+          // registration failed :(
+          console.log("ServiceWorker registration failed: ", err);
+        }
+      );
+    });
+  }
+	</script>
 </body>
 </html>

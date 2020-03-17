@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // this causes / and /randomize to do the same. This is because of the questionmark at the end, makes ranomize optional
 app.get('/:var(randomize)?', (req, res) => {
+    console.log('OVERVIEW');
     fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
     .then(res => res.json())
     .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
