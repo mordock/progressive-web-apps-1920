@@ -8,12 +8,12 @@
 <body>
 	<h1 id='Title'>Random Star Wars characters</h1>
 	<section id="overview">
-		<p><a id="a1" href=<%- myjson[0] %>><%- myjson[0] %></a></p>
-		<p><a id="a2" href=<%- myjson[1] %>><%- myjson[1] %></a></p>
-		<p><a id="a3" href=<%- myjson[2] %>><%- myjson[2] %></a></p>
-		<p><a id="a4" href=<%- myjson[3] %>><%- myjson[3] %></a></p>
-		<p><a id="a5" href=<%- myjson[4] %>><%- myjson[4] %></a></p>
-		<p><a id="a6" href=<%- myjson[5] %>><%- myjson[5] %></a></p>
+		<p><a id="a1" href=<%= '/char/' + myjson[0] %>><%= myjson[0] %></a></p>
+		<p><a id="a2" href=<%= '/char/' + myjson[1] %>><%- myjson[1] %></a></p>
+		<p><a id="a3" href=<%= '/char/' + myjson[2] %>><%- myjson[2] %></a></p>
+		<p><a id="a4" href=<%= '/char/' + myjson[3] %>><%- myjson[3] %></a></p>
+		<p><a id="a5" href=<%= '/char/' + myjson[4] %>><%- myjson[4] %></a></p>
+		<p><a id="a6" href=<%= '/char/' + myjson[5] %>><%- myjson[5] %></a></p>
 
 
 		<form action="/randomize" method="GET">
@@ -24,7 +24,7 @@
 	<script>
 		if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("js/serviceWorker.js").then(
+      navigator.serviceWorker.register("serviceWorker.js").then(
         registration => {
           // Registration was successful
           console.log(
