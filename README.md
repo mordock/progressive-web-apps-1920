@@ -1,6 +1,7 @@
 # Progressive Web Apps @cmda-minor-web · 2019-2020
 
-My code can be found in the Web-App folder
+Link:  
+https://maxweijers.herokuapp.com/randomize
 
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
