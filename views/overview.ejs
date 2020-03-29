@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css" defer>
 	<title>Random Star Wars Character Generator</title>
 </head>
 
 <body>
 	<h1 id='Title'>Random Star Wars characters</h1>
 	<section id="overview">
-		<p><a id="a1" href=<%= '/char/' + myjson[0] %>><%= myjson[0] %></a></p>
-		<p><a id="a2" href=<%= '/char/' + myjson[1] %>><%- myjson[1] %></a></p>
-		<p><a id="a3" href=<%= '/char/' + myjson[2] %>><%- myjson[2] %></a></p>
-		<p><a id="a4" href=<%= '/char/' + myjson[3] %>><%- myjson[3] %></a></p>
-		<p><a id="a5" href=<%= '/char/' + myjson[4] %>><%- myjson[4] %></a></p>
-		<p><a id="a6" href=<%= '/char/' + myjson[5] %>><%- myjson[5] %></a></p>
+		<p><a id="a1" href=<%= '/char/' + characterNames[0] %>><%= characterNames[0] %></a></p>
+		<p><a id="a2" href=<%= '/char/' + characterNames[1] %>><%- characterNames[1] %></a></p>
+		<p><a id="a3" href=<%= '/char/' + characterNames[2] %>><%- characterNames[2] %></a></p>
+		<p><a id="a4" href=<%= '/char/' + characterNames[3] %>><%- characterNames[3] %></a></p>
+		<p><a id="a5" href=<%= '/char/' + characterNames[4] %>><%- characterNames[4] %></a></p>
+		<p><a id="a6" href=<%= '/char/' + characterNames[5] %>><%- characterNames[5] %></a></p>
 
 
 		<form action="/randomize" method="GET">
 			<input id="RandomButton" type="submit" value="Randomize">
 		</form>
 	</section>
-	<main></main>
+
 	<script>
 		if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

@@ -1,12 +1,10 @@
 const express = require('express');
 const path = require('path');
 const fetch = require('node-fetch');
+const compression = require('compression');
+require('dotenv').config();
 
-//api info
-const urlBase = 'https://swapi.co/api';
-const urlExtensionCategory = '/people/';
-const urlPageExtension = '?page='
-const urlSearchExtension = '?search='
+const env = process.env;
 
 let numbersUsedList = [];
 const numberOfPages = 9;
@@ -20,23 +18,23 @@ app.set('view engine', 'ejs');
 
 app.set('views', 'views');
 
+app.use(compression());
 
 //use public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// this causes / and /randomize to do the same. This is because of the questionmark at the end, makes ranomize optional
 app.get(['/', '/randomize'], (req, res) => {
     console.log('OVERVIEW');
-    fetch(urlBase + urlExtensionCategory + urlPageExtension + randomAPIPageNumber(numberOfPages))
+    fetch(env.URL_BASE + env.URL_EXTENSION_CATEGORY + env.URL_PAGE_EXTENSION + randomAPIPageNumber(numberOfPages))
     .then(res => res.json())
-    .then(myjson => res.render('overview', {myjson:getRandomNames(myjson)}));
+    .then(myjson => res.render('overview', {characterNames:getRandomNames(myjson)}));
 });
 
 app.get('/char/:id', (req, res) => {
     console.log('Details');
-    fetch(urlBase + urlExtensionCategory + urlSearchExtension + req.params.id)
+    fetch(env.URL_BASE + env.URL_EXTENSION_CATEGORY + env.URL_SEARCH_EXTENSION + req.params.id)
     .then(res => res.json())
-    .then(myjson => res.render('detail', {myjson:myjson}));
+    .then(myjson => res.render('detail', {characterData:myjson.results[0]}));
 });
 
 function randomAPIPageNumber(maxNumberPages){
