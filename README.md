@@ -36,11 +36,9 @@ starships: Array(3) [ "https://swapi.co/api/starships/59/", "https://swapi.co/ap
 url: "https://swapi.co/api/people/11/"  
 vehicles: Array [ "https://swapi.co/api/vehicles/44/", "https://swapi.co/api/vehicles/46/" ]
 
-## TODO
-Add gitignore,  
-Add modules,  
-Add environment,  
-Renaming  
+## Performance enhancements
+
+The website has basic funionality without javascript:
 
 <!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
 
