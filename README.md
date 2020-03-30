@@ -38,7 +38,44 @@ vehicles: Array [ "https://swapi.co/api/vehicles/44/", "https://swapi.co/api/veh
 
 ## Performance enhancements
 
-The website has basic funionality without javascript:
+The website has basic funionality without javascript:  
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/javascript_block001.png)  
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/javascript_block002.png)  
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/javascript_block003.png)  
+
+A service worker has been implemented and a few files are being cached:
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/serviceworker001.png)  
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/serviceworker002.png)  
+
+A few optimizations have been make to improve the critical render path, the student understands the terms:  
+First view: This is about the time until the first meaningful paint, so when the user can read your page.  
+Repeat view: This is about reducing bytes and caching.  
+Perceived performance: This is how fast the user thinks the site loads, not how fast it actually loads.  
+Runtime performance:  This is the performance when your site is running, not loading, this could be smoothness of transitions or animations.  
+Time to interaction: This is about the time before a page is interative and the javascript is loaded.  
+Time to first byte: This is about the responce time of the server.  
+
+## optimizations made
+
+## 1. Server side rendering
+By using server side rendering and using ejs templates I'm able to almost immediately show a result to the user. This helps with the Load responsiveness.  
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/Server001.png)
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/Server002.png)
+
+## 2. Minifying  
+Using an online CSS minifier I was able to trying my css files from 689 bytes to 335 bytes. My css file is quite small so thers not much of an actual difference, but it's an improvement of roughly 50%, if you have a css of several kilobytes this would have been a good improvement.
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify002.png)
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify001.png)
+
+## 3. Compression  
+I used the compression library which works together with express to compress my files for a quicker loading time. You can see for example that the manifest got compresses from 1.3 kb to about 700 bytes.
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/compress001.png)
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/compress002.png)
+
+## 4. Service worker  
+A service worker has been implemented to improve the repeat view for users. Files like the css and the manifest don't need to be reloaded. 
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/service001.png)
+
 
 <!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
 
@@ -47,8 +84,6 @@ The website has basic funionality without javascript:
 <!-- How about a section that describes how to install this project? 🤓 -->
 
 <!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
 
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
 
