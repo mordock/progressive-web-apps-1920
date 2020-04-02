@@ -14,6 +14,11 @@ let randomNumber;
 
 const app = express();
 
+URL_BASE = 'https://swapi.co/api'
+URL_EXTENSION_CATEGORY = "/people/"
+URL_PAGE_EXTENSION = "?page="
+URL_SEARCH_EXTENSION = "?search="
+
 app.set('view engine', 'ejs');
 
 app.set('views', 'views');
@@ -25,14 +30,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get(['/', '/randomize'], (req, res) => {
     console.log('OVERVIEW');
-    fetch(env.URL_BASE + env.URL_EXTENSION_CATEGORY + env.URL_PAGE_EXTENSION + randomAPIPageNumber(numberOfPages))
+    fetch(URL_BASE + URL_EXTENSION_CATEGORY + URL_PAGE_EXTENSION + randomAPIPageNumber(numberOfPages))
     .then(res => res.json())
     .then(myjson => res.render('overview', {characterNames:getRandomNames(myjson)}));
 });
 
 app.get('/char/:id', (req, res) => {
     console.log('Details');
-    fetch(env.URL_BASE + env.URL_EXTENSION_CATEGORY + env.URL_SEARCH_EXTENSION + req.params.id)
+    fetch(URL_BASE + URL_EXTENSION_CATEGORY + URL_SEARCH_EXTENSION + req.params.id)
     .then(res => res.json())
     .then(myjson => res.render('detail', {characterData:myjson.results[0]}));
 });
