@@ -4,14 +4,15 @@ const fetch = require('node-fetch');
 const compression = require('compression');
 
 let numbersUsedList = [];
-const numberOfPages = 9;
 const numberOfPeople = 6;
 
 let randomNumber;
 
 const app = express();
 
-URL_BASE = 'https://swapi.co/api'
+let APIKEY = "6JjTY2938Y90KJu1kTij3tJrrfwubQil";
+
+URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&q=`;
 URL_EXTENSION_CATEGORY = "/people/"
 URL_PAGE_EXTENSION = "?page="
 URL_SEARCH_EXTENSION = "?search="
@@ -21,6 +22,44 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(compression());
+
+let characters = [
+    {
+        "name" : "Luke Skywalker",
+        "mass" : "77",
+        "gender" : "male"
+    },
+    {
+        "name" : "Han Solo",
+        "mass" : "80",
+        "gender" : "male"
+    },
+    {
+        "name" : "Anakin Skywalker",
+        "mass" : "72",
+        "gender" : "male"
+    },
+    {
+        "name" : "Padme Amedala",
+        "mass" : "60",
+        "gender" : "female"
+    },
+    {
+        "name" : "Mace Windu",
+        "mass" : "79",
+        "gender" : "male"
+    },
+    {
+        "name" : "Obi Wan Kenobi",
+        "mass" : "73",
+        "gender" : "male"
+    },
+    {
+        "name" : "Rey Palpatine",
+        "mass" : "63",
+        "gender" : "female"
+    },
+];
 
 //use public folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,33 +71,52 @@ app.use(function(req, res, next){
 });
 
 app.get(['/', '/randomize'], (req, res) => {
-    console.log('OVERVIEW');
-    fetch(URL_BASE + URL_EXTENSION_CATEGORY + URL_PAGE_EXTENSION + randomAPIPageNumber(numberOfPages))
-    .then(res => res.json())
-    .then(myjson => res.render('overview', {characterNames:getRandomNames(myjson)}));
+    res.render('overview', {characterNames:getRandomNames(characters)});
 });
 
 app.get('/char/:id', (req, res) => {
-    console.log('Details');
-    fetch(URL_BASE + URL_EXTENSION_CATEGORY + URL_SEARCH_EXTENSION + req.params.id)
-    .then(res => res.json())
-    .then(myjson => res.render('detail', {characterData:myjson.results[0]}));
+    let gifUrl;
+    let characterName;
+
+    characters.forEach(element => {
+        if(element.name.includes(req.params.id)){
+            characterName = element;
+        }
+    });
+
+    fetch(URL_BASE + characterName.name)
+    .then(response => response.json())
+    .then(content => {
+        gifUrl = content.data[randomImageNumber(content.data.length)].images.downsized.url;
+        res.render('detail', {characterData:getOneCharacter(req.params.id), gifData:gifUrl });
+
+    });
 });
 
-function randomAPIPageNumber(maxNumberPages){
-    const randomPageNumber = Math.floor((Math.random() * maxNumberPages) + 1);
-    return randomPageNumber;
+function randomImageNumber(maxLength){
+    returnNumber = Math.floor(Math.random() * maxLength);
+    return returnNumber;
+}
+
+function getOneCharacter(name){
+    var characterObject
+    characters.forEach(element => {
+        if(element.name.includes(name)){
+            characterObject = element;
+        }
+    });
+    return characterObject;
 }
 
 function getRandomNames(json){
     let myjson = [];
 
     for(let i = 0; i < numberOfPeople; i++){
-        const length = json.results.length;
+        const length = json.length;
 
         const currentRandom = getRandomNumber(length);
 
-        myjson.push(json.results[currentRandom].name);      
+        myjson.push(json[currentRandom].name);      
     }
 
     numbersUsedList = [];
