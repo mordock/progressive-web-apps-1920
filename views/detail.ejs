@@ -6,7 +6,9 @@
 		<p id="name">Name: <%- characterData.name %></p>
 		<p id="gender">Gender: <%- characterData.gender %></p>
 		<p id="mass">Mass: <%- characterData.mass %>KG</p>
-		<img src=<%= gifData %> />
+		<div class="image">
+			<img src=<%= gifData %> />
+		</div>
 		<form action="/randomize" method="GET">
 			<input id="RandomButton" type="submit" value="Back">
 		</form>

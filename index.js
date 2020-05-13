@@ -10,9 +10,6 @@ const app = express();
 let APIKEY = "6JjTY2938Y90KJu1kTij3tJrrfwubQil";
 
 URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&q=`;
-URL_EXTENSION_CATEGORY = "/people/"
-URL_PAGE_EXTENSION = "?page="
-URL_SEARCH_EXTENSION = "?search="
 
 app.set('view engine', 'ejs');
 
