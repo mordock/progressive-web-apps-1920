@@ -9,11 +9,12 @@ https://maxweijers.herokuapp.com/randomize
 This app shows you random star wars characters with info about them. It show the name, gender, birthday and mass of those characters. 
 
 ## Features
-You can get 6 random Star Wars characters and click to see some more info about them. There's also a randomize button to show new characters.
+You can get 6 random Star Wars characters and click to see some more info about them. There's also a randomize button to show new characters. 
+You will also get to see a gif about the character you clicked on. 
 
 ## API
 This app used the Star wars API.
-https://swapi.co/
+https://swapi.dev/
 
 You can ask for certain character from such a link: 
 https://swapi.co/api/people/1/
@@ -63,7 +64,7 @@ By using server side rendering and using ejs templates I'm able to almost immedi
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/Server002.png)
 
 ## 2. Minifying  
-For the CSS minifying I used Gulp , the clean gulp and the concat gulp package to generate a minified version of my CSS. With this I also created a watcher so that any changes made to my CSS file will automatically update my minified version. The improvements can be seen down here as well.
+For the CSS minifying I used Gulp , the clean gulp and the concat gulp package to generate a minified version of my CSS. With this I also created a watcher so that any changes made to my CSS file will automatically update my minified version. The improvements can be seen down here as well.  
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/watcher.png)
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify002.png)
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify001.png)
