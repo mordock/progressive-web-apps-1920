@@ -63,7 +63,8 @@ By using server side rendering and using ejs templates I'm able to almost immedi
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/Server002.png)
 
 ## 2. Minifying  
-Using an online CSS minifier I was able to trying my css files from 689 bytes to 335 bytes. My css file is quite small so thers not much of an actual difference, but it's an improvement of roughly 50%, if you have a css of several kilobytes this would have been a good improvement.
+For the CSS minifying I used Gulp , the clean gulp and the concat gulp package to generate a minified version of my CSS. With this I also created a watcher so that any changes made to my CSS file will automatically update my minified version. The improvements can be seen down here as well.
+![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/watcher.png)
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify002.png)
 ![alt_text](https://github.com/mordock/progressive-web-apps-1920/blob/master/course/schoolstuff/minify001.png)
 
