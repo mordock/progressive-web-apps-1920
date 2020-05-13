@@ -1,12 +1,9 @@
+let randomFunctions = require('./public/randomFunctions');
+
 const express = require('express');
 const path = require('path');
 const fetch = require('node-fetch');
 const compression = require('compression');
-
-let numbersUsedList = [];
-const numberOfPeople = 6;
-
-let randomNumber;
 
 const app = express();
 
@@ -71,7 +68,7 @@ app.use(function(req, res, next){
 });
 
 app.get(['/', '/randomize'], (req, res) => {
-    res.render('overview', {characterNames:getRandomNames(characters)});
+    res.render('overview', {characterNames:randomFunctions.getRandomNames(characters)});
 });
 
 app.get('/char/:id', (req, res) => {
@@ -87,52 +84,11 @@ app.get('/char/:id', (req, res) => {
     fetch(URL_BASE + characterName.name)
     .then(response => response.json())
     .then(content => {
-        gifUrl = content.data[randomImageNumber(content.data.length)].images.downsized.url;
-        res.render('detail', {characterData:getOneCharacter(req.params.id), gifData:gifUrl });
+        gifUrl = content.data[randomFunctions.randomImageNumber(content.data.length)].images.downsized.url;
+        res.render('detail', {characterData:randomFunctions.getOneCharacter(req.params.id), gifData:gifUrl });
 
     });
 });
-
-function randomImageNumber(maxLength){
-    returnNumber = Math.floor(Math.random() * maxLength);
-    return returnNumber;
-}
-
-function getOneCharacter(name){
-    var characterObject
-    characters.forEach(element => {
-        if(element.name.includes(name)){
-            characterObject = element;
-        }
-    });
-    return characterObject;
-}
-
-function getRandomNames(json){
-    let myjson = [];
-
-    for(let i = 0; i < numberOfPeople; i++){
-        const length = json.length;
-
-        const currentRandom = getRandomNumber(length);
-
-        myjson.push(json[currentRandom].name);      
-    }
-
-    numbersUsedList = [];
-
-    return myjson;
-}
-
-function getRandomNumber(maxNumber){
-    while(numbersUsedList.length < maxNumber){
-        randomNumber = Math.floor(Math.random() * maxNumber);
-        if(numbersUsedList.indexOf(randomNumber) === -1) {
-            numbersUsedList.push(randomNumber);
-            return randomNumber;
-        }
-    }
-}
 
 const PORT = process.env.PORT || 5000;
 
