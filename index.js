@@ -10,7 +10,9 @@ require('dotenv').config();
 
 const app = express();
 
-URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.APIKEY}&limit=10&q=`;
+const APIKEY = process.env.APIKEY;
+
+URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&q=`;
 
 app.set('view engine', 'ejs');
 
