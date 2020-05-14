@@ -1,7 +1,6 @@
 const staticCacheName = 'static-files';
 const assets = [
     '/', 
-    'offline.html',
     'manifest.json',
     '/css/style.css',
     '/char/css/style.css'

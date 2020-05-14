@@ -1,59 +1,22 @@
 let randomFunctions = require('./public/randomFunctions');
+let characters = require('./public/characters');
 
 const express = require('express');
 const path = require('path');
 const fetch = require('node-fetch');
 const compression = require('compression');
 
+require('dotenv').config();
+
 const app = express();
 
-let APIKEY = "6JjTY2938Y90KJu1kTij3tJrrfwubQil";
-
-URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&q=`;
+URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.APIKEY}&limit=10&q=`;
 
 app.set('view engine', 'ejs');
 
 app.set('views', 'views');
 
 app.use(compression());
-
-let characters = [
-    {
-        "name" : "Luke Skywalker",
-        "mass" : "77",
-        "gender" : "male"
-    },
-    {
-        "name" : "Han Solo",
-        "mass" : "80",
-        "gender" : "male"
-    },
-    {
-        "name" : "Anakin Skywalker",
-        "mass" : "72",
-        "gender" : "male"
-    },
-    {
-        "name" : "Padme Amedala",
-        "mass" : "60",
-        "gender" : "female"
-    },
-    {
-        "name" : "Mace Windu",
-        "mass" : "79",
-        "gender" : "male"
-    },
-    {
-        "name" : "Obi Wan Kenobi",
-        "mass" : "73",
-        "gender" : "male"
-    },
-    {
-        "name" : "Rey Palpatine",
-        "mass" : "63",
-        "gender" : "female"
-    },
-];
 
 //use public folder
 app.use(express.static(path.join(__dirname, 'public')));
