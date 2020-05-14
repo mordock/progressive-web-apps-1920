@@ -49,8 +49,6 @@ let characters = [
     },
 ];
 
-// APIKEY='6JjTY2938Y90KJu1kTij3tJrrfwubQil';
-
 URL_BASE = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&q=`;
 
 app.set('view engine', 'ejs');
@@ -61,12 +59,6 @@ app.use(compression());
 
 //use public folder
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(function(req, res, next){
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Headers', 'orign, x-requested-width, Content-Type, Accept');
-//     next();
-// });
 
 app.get(['/', '/randomize'], (req, res) => {
     res.render('overview', {characterNames:randomFunctions.getRandomNames(characters)});
